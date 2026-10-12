@@ -1,0 +1,17 @@
+# Never commit real configurations or secrets to this public repository
+*.xml
+*.conf
+*.cfg
+*.bin
+*.key
+*.pem
+*.p12
+*.ovpn
+*.kdbx
+.env
+*secret*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

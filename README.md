@@ -58,6 +58,8 @@ flowchart LR
 | 4. [Remote access and backups](docs/en/04-remote-access-and-backups.md) | WireGuard, backup flow, 3-2-1 |
 | [Architecture Decision Records](docs/en/adr/README.md) | Why Proxmox, why OPNsense, why not Windows Server, … |
 | [Case study: hardening an end-of-life NAS](docs/en/case-studies/eol-nas-hardening.md) | Firmware CVEs, findings, remediation |
+| [Case study: second-hand server to hypervisor](docs/en/case-studies/second-hand-server-revival.md) | iLO clean-up, firmware, HBA mode, Proxmox over virtual media |
+| [Case study: cut-over during working hours](docs/en/case-studies/cutover-to-opnsense.md) | Step-by-step migration, pitfalls, plan vs. as built |
 | [Runbook: fallback to the legacy router](docs/en/runbooks/fallback-to-legacy-router.md) | Restore internet in 10 minutes if the server fails |
 | [Changelog](CHANGELOG.md) | What changed, when |
 
@@ -67,12 +69,12 @@ flowchart LR
 |---|---|---|
 | 0 | Assess existing router, access point and NAS | ✅ Done |
 | 1 | NAS firmware update, wipe and hardening | ✅ Done |
-| 2 | Server: firmware, RAID, Proxmox VE | ⏳ Next |
-| 3 | OPNsense: WAN1 + WAN2, LAN, gateway group, cut-over | ⬜ |
-| 4 | Wi-Fi segment: allow-list, captive portal, LAN isolation | ⬜ |
-| 5 | WireGuard remote access | ⬜ |
+| 2 | Server: firmware, RAID, Proxmox VE | ✅ Done (disk mirror pending) |
+| 3 | OPNsense: WAN1 + WAN2, LAN, failover, cut-over | ✅ Live since 2026-10-15 |
+| 4 | Wi-Fi segment: allow-list, captive portal, LAN isolation | ✅ Segment + allow-list live · captive portal ⬜ |
+| 5 | WireGuard remote access | ⏳ Next |
 | 6 | Additional NIC and third WAN | ⬜ |
-| 7 | Automated VM backups to NAS + off-site copy | ⬜ |
+| 7 | Automated VM backups to NAS + off-site copy | ✅ Nightly to NAS · off-site ⬜ |
 
 ## Tech stack
 

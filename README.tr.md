@@ -58,6 +58,8 @@ flowchart LR
 | 4. [Uzaktan erişim ve yedekleme](docs/tr/04-uzaktan-erisim-ve-yedekleme.md) | WireGuard, yedekleme akışı, 3-2-1 |
 | [Mimari Karar Kayıtları (ADR)](docs/tr/adr/README.md) | Neden Proxmox, neden OPNsense, neden Windows Server değil… |
 | [Vaka çalışması: desteği bitmiş NAS'ın sertleştirilmesi](docs/tr/case-studies/eol-nas-hardening.md) | Firmware CVE'leri, bulgular, düzeltmeler |
+| [Vaka çalışması: ikinci el sunucudan sanallaştırma sunucusuna](docs/tr/case-studies/ikinci-el-sunucu.md) | iLO temizliği, firmware, HBA modu, sanal medyayla Proxmox |
+| [Vaka çalışması: mesai saatinde geçiş](docs/tr/case-studies/opnsense-gecisi.md) | Adım adım geçiş, tuzaklar, plan ile kurulan sistem |
 | [Runbook: eski router'a dönüş](docs/tr/runbooks/eski-routera-donus.md) | Sunucu çökerse interneti 10 dakikada geri getirmek |
 | [Değişiklik günlüğü](CHANGELOG.md) | Ne zaman ne değişti |
 
@@ -67,12 +69,12 @@ flowchart LR
 |---|---|---|
 | 0 | Mevcut router, erişim noktası ve NAS'ın incelenmesi | ✅ Tamam |
 | 1 | NAS firmware güncellemesi, temizlik ve sertleştirme | ✅ Tamam |
-| 2 | Sunucu: firmware, RAID, Proxmox VE | ⏳ Sırada |
-| 3 | OPNsense: WAN1 + WAN2, LAN, gateway grubu, geçiş | ⬜ |
-| 4 | Wi-Fi segmenti: beyaz liste, captive portal, LAN izolasyonu | ⬜ |
-| 5 | WireGuard ile uzaktan erişim | ⬜ |
+| 2 | Sunucu: firmware, RAID, Proxmox VE | ✅ Tamam (disk aynası bekliyor) |
+| 3 | OPNsense: WAN1 + WAN2, LAN, yedek hat, geçiş | ✅ 2026-10-15'ten beri canlıda |
+| 4 | Wi-Fi segmenti: beyaz liste, captive portal, LAN izolasyonu | ✅ Segment + izin listesi canlıda · captive portal ⬜ |
+| 5 | WireGuard ile uzaktan erişim | ⏳ Sırada |
 | 6 | Ek ağ kartı ve üçüncü WAN | ⬜ |
-| 7 | Sanal makinelerin NAS'a otomatik yedeklenmesi + bulut kopyası | ⬜ |
+| 7 | Sanal makinelerin NAS'a otomatik yedeklenmesi + bulut kopyası | ✅ NAS'a gecelik · bulut kopyası ⬜ |
 
 ## Teknolojiler
 
